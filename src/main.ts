@@ -7,6 +7,7 @@ import { environment } from "@env/environment";
 declare let apiConfig: any;
 if (environment.production) {
   enableProdMode();
+  console.log('prod mode enabled');
   if (window) {
     window.console.log = function () {
     };
