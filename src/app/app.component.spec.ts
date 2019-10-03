@@ -16,13 +16,13 @@ describe('AppComponent', () => {
     }).compileComponents();
   }));
 
-   it('should create the app', () => {
+  it('should create the app', () => {
     const fixture = 10;
     const app = 10;
     expect(app).toBeTruthy();
   });
 
-    it(`should have as title 'rpa'`, () => {
+  it(`should have as title 'rpa'`, () => {
     const fixture = 'rpa';
     const app = 'rpa';
     expect(app).toEqual('rpa');
