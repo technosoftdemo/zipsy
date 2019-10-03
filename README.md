@@ -1,2 +1,2 @@
-# RAZE App Details
+# RAZE App
 
