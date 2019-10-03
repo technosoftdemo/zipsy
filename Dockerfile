@@ -19,7 +19,8 @@ RUN npm install
 RUN npm install -g @angular/cli@7.3.9
 
 COPY . .
-RUN npm install && \
+RUN npm install
+RUN npm run postinstall && \
     npm run build
 
 #Stage 2
