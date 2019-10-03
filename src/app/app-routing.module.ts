@@ -13,7 +13,7 @@ const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
-    //canActivate: [AuthGuard],
+    canActivate: [NoAuthGuard],
     children: [
       {
         path: 'dashboard',
