@@ -7,7 +7,7 @@ import { AuthService } from '@core/services/auth.service';
 })
 export class HeaderComponent implements OnInit {
    
-    private displayUserActionPane = false;
+    displayUserActionPane = false;
 
     constructor(private _authService: AuthService) {
 
