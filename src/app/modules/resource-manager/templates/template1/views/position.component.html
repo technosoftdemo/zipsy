@@ -1,0 +1,204 @@
+<!-- <h2> Positions </h2><div fxFlex></div> -->
+<mat-card fxFlex="100" fxLayout="row">
+  <form fxLayout="row wrap" fxFlex="100" [formGroup]="positionForm" (ngSubmit)="savePosition(positionForm.value, positionForm.valid)" novalidate>
+    <div class="input-row" fxFlex="100" fxLayout="row wrap" fxLayoutGap="5px">
+      <mat-form-field fxFlex="20">
+        <input matInput type="text" placeholder="Position name" formControlName="name">
+        <mat-error *ngIf="positionForm.get('name').errors?.required">Position Name is required.</mat-error>
+        <mat-error *ngIf="positionForm.get('name').errors?.maxLength">Name can be max of 100 charaters long.</mat-error>
+      </mat-form-field>
+      <mat-form-field fxFlex="20">
+        <input matInput type="text" placeholder="Code" formControlName="code">
+        <mat-error *ngIf="positionForm.get('code').errors?.required">Code is required.</mat-error>
+        <mat-error *ngIf="positionForm.get('code').errors?.maxLength">Code can be max of 10 charaters long.</mat-error>
+      </mat-form-field>
+      <mat-form-field fxFlex="18">
+        <input matInput [matDatepicker]="picker" formControlName="startDate" placeholder="Start Date" disabled>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker disabled="false"></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field fxFlex="18">
+        <input matInput [matDatepicker]="picker2" formControlName="endDate" placeholder="End date" disabled>
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2 disabled="false"></mat-datepicker>
+      </mat-form-field>
+      <div fxFlex="20">
+        <label>Years of Experiance</label><br />
+        <mat-slider  formControlName="yearsOfExperiance"  style="width:100%" thumbLabel tickInterval="1" min="1" max="100"></mat-slider>
+      </div>
+      <!-- <mat-form-field fxFlex="33">
+        <mat-select placeholder="Approvers">
+          <mat-option [value]="1">
+            Manager 1
+          </mat-option>
+          <mat-option [value]="2">
+            Manager 2
+          </mat-option>
+        </mat-select>
+      </mat-form-field> -->
+    </div>
+
+    <div class="input-row" fxLayout="row" fxFlex="100">
+      <!-- <mat-form-field fxFlex> -->
+        <!-- <textarea matInput placeholder="Description"></textarea> -->
+        <editor fxFlex formControlName="description" [init]="{plugins: 'quickbars',  inline:false, branding:false}"></editor>
+      <!-- </mat-form-field> -->
+    </div>
+    <div class="input-row" fxLayout="row" fxFlex="100">
+      <fieldset fxFlex="100">
+          <legend><b>Skillset Configuration</b></legend>
+        <!-- <div fxFlex></div> -->
+        <ng-form #skillsetForm="ngForm" fxFlex="100">
+          <div class="input-row" fxFlex="100" fxLayout="row wrap" fxLayoutGap="5px">
+            <mat-form-field fxFlex="20">
+              <input matInput type="text" placeholder="Choose Skill">
+            </mat-form-field>
+            <mat-form-field fxFlex="20">
+              <input matInput type="text" placeholder="Experiance">
+            </mat-form-field>
+            <div fxFlex="15" style="padding-left: 10px;">
+              <label>Mandatory?</label><br />
+              No<mat-slide-toggle>Yes</mat-slide-toggle>
+            </div>
+            <div fxFlex="15" style="padding-left: 10px;">
+              <label>Add Description</label>
+            </div>
+            <div fxFlex="20">
+              <button mat-raised-button color="primary" [disabled]="!skillsetForm.valid">Add</button>
+            </div>
+          </div>
+        </ng-form>
+        <div fxFlex="100">
+            <table mat-table [dataSource]="skillset" fxFlex="100" class="mat-elevation-z8">
+
+                <!--- Note that these columns can be defined in any order.
+                      The actual rendered columns are set as a property on the row definition" -->
+               <!-- Name Column -->
+               <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef> Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+
+                <!-- Position Column -->
+                <ng-container matColumnDef="experiance">
+                  <th mat-header-cell *matHeaderCellDef> Experiance </th>
+                  <td mat-cell *matCellDef="let element"> {{element.experiance}} </td>
+                </ng-container>
+              
+               
+              
+                <!-- Weight Column -->
+                <ng-container matColumnDef="mandatory">
+                  <th mat-header-cell *matHeaderCellDef> Mandatory? </th>
+                  <td mat-cell *matCellDef="let element"> {{element.mandatory}} </td>
+                </ng-container>
+                <ng-container matColumnDef="description">
+                    <th mat-header-cell *matHeaderCellDef> Description </th>
+                    <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="actions">
+                      <th mat-header-cell *matHeaderCellDef> Actions </th>
+                      <td mat-cell *matCellDef="let element"> 
+                          <mat-icon (click)="editSkillset(element)" aria-hidden="false" style="cursor: pointer;" class="material-icons color_blue" aria-label="edit icon">edit</mat-icon>
+                          <mat-icon (click)="deleteSkillset(element)" aria-hidden="false" style="cursor: pointer;" class="material-icons color_red" aria-label="delete icon error">delete</mat-icon>
+
+                        <!-- <button md-raised-button >Edit</button>  -->
+                        <!-- <button md-raised-button >Delete</button>   -->
+                      </td>
+                  </ng-container> 
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+        </div>
+      </fieldset>
+    </div>
+
+    <!-- <div class="input-row" fxLayout="row" fxFlex="100">
+        <mat-form-field fxFlex="33">
+            <input matInput [matDatepicker]="picker" placeholder="Start Date" disabled>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker disabled="false"></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field fxFlex="33">
+            <input matInput [matDatepicker]="picker2" placeholder="End date" disabled>
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2 disabled="false"></mat-datepicker>
+          </mat-form-field>
+          <div fxFlex></div>
+      </div> -->
+      <div class="input-row" fxLayout="row" fxFlex="100">
+        <div fxFlex></div>
+        <div fxFlex="33">
+        <button  type="submit" mat-raised-button #cancelBtn color="primary" [disabled]="!positionForm.valid" (click)="onCancel()">Save</button>
+        </div>
+      </div>
+      
+  </form>
+
+</mat-card>
+<!-- 
+<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="16px grid">
+  <mat-form-field fxFlex.xs="calc(50%-25px)" fxFlex="calc(33%-25px)">
+    <input matInput placeholder="Name">
+  </mat-form-field>
+  <mat-form-field fxFlex.xs="calc(50%-25px)" fxFlex="calc(33%-25px)">
+    <input matInput placeholder="Occupation">
+  </mat-form-field>
+  <mat-form-field fxFlex.xs="calc(50%-25px)" fxFlex="calc(33%-25px)">
+    <input matInput placeholder="Company">
+  </mat-form-field>
+  <mat-form-field fxFlex.xs="calc(50%-25px)" fxFlex="calc(33%-25px)">
+    <input matInput placeholder="Name">
+  </mat-form-field>
+  <mat-form-field fxFlex.xs="calc(50%-25px)" fxFlex="calc(33%-25px)">
+    <input matInput placeholder="Occupation">
+  </mat-form-field>
+  <mat-form-field fxFlex.xs="calc(50%-25px)" fxFlex="calc(33%-25px)">
+    <input matInput placeholder="Company">
+  </mat-form-field>
+</div> -->
+<!-- <h2> Positions </h2>
+<div fxLayout="row" fxLayoutGap="10px" style="min-height: 500px;">
+  <mat-card fxFlex="100" fxLayout="row">
+    <form fxLayout="row">
+      <div fxLayout="row" fxLayoutGap="10px">
+        <mat-form-field fxFlex="25">
+          <input type="text" matInput placeholder="Name" />
+          <mat-error>Errors appear instantly!</mat-error>
+        </mat-form-field>
+        <mat-form-field fxFlex="25">
+          <input type="text" matInput placeholder="Code" />
+          <mat-error>Errors appear instantly!</mat-error>
+        </mat-form-field>
+        <mat-form-field fxFlex="25">
+          <input type="text" matInput placeholder="Description" />
+          <mat-error>Errors appear instantly!</mat-error>
+        </mat-form-field>
+        <mat-form-field fxFlex="25">
+          <mat-select placeholder="Approvers">
+            <mat-option [value]="1">
+              Manager 1
+            </mat-option>
+            <mat-option [value]="2">
+              Manager 2
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+        <div fxLayout="row">
+          <mat-form-field fxFlex="45">
+            <input matInput [matDatepicker]="picker" placeholder="Start Date" disabled>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker disabled="false"></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field fxFlex="45">
+            <input matInput [matDatepicker]="picker2" placeholder="End date" disabled>
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2 disabled="false"></mat-datepicker>
+          </mat-form-field>
+          <div fxFlex></div>
+        </div>
+    </form>
+  </mat-card>
+</div> -->
