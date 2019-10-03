@@ -1,2 +1,2 @@
-# RAZE Application Demo
+# RAZE Application
 
