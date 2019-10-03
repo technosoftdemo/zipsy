@@ -9,7 +9,7 @@
     "clean": "npm cache clean --force",
     "start": "http-server -c-1 -p 8081 dist",
     "build": "ng build --prod --build-optimizer --vendor-chunk=true",
-    "cibuild": "ng test --watch=false --code-coverage && ng build --prod --no-progress",
+    "cibuild": "ng test --watch=false --code-coverage --no-sandbox && ng build --prod --no-progress",
     "postinstall": "node patch.js"
   },
   "private": true,
