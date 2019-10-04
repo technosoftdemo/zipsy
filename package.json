@@ -37,6 +37,7 @@
     "http-server": "^0.11.1",
     "idtoken-verifier": "^1.2.0",
     "is-docker": "^2.0.0",
+    "karma-sonarqube-unit-reporter": "0.0.21",
     "ngx-cookie-service": "^2.2.0",
     "rxjs": "^6.4.0",
     "safe-buffer": "^5.2.0",

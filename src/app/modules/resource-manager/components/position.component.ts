@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { DialogService } from '@shared/services/dialog.service';
+import { SkillsetModel } from '@core/models/skillset.interface';
+import { PositionModel } from '@core/models/position.interface';
 
 @Component({
     selector: 'position',

@@ -1,4 +1,4 @@
-interface SkillsetModel {
+export interface SkillsetModel {
     id:number;
     name: string;
     experiance: number;

@@ -11,4 +11,5 @@ export * from './services/global-exception-handler.service';
 export * from './services/logger.service';
 export * from './models/requestoptions.interface';
 export * from './models/usersession.interface';
+export * from './models/skillset.interface';
 
