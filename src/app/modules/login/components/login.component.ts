@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
 
     login(loginModel, isValid) {
         console.log(loginModel,{});
+        
         this._authService.setUserName("Admin");
         this._cacheService.set('UserName','Admin');
         this._router.navigate(['/dashboard/home']);
