@@ -10,6 +10,8 @@ import { ConfirmDialogComponent } from './components/confirmation-dialog.compone
 import { AlertDialogComponent } from './components/alert-dialog.component';
 import { DialogService } from './services/dialog.service';
 import { EditorModule } from '@tinymce/tinymce-angular';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import { EditorModule } from '@tinymce/tinymce-angular';
     //BrowserAnimationsModule,
     MatDialogModule,
     MaterialModule,
-    EditorModule
+    EditorModule,
+    NgxChartsModule
   ],
   exports: [
     CommonModule,
@@ -43,7 +46,8 @@ import { EditorModule } from '@tinymce/tinymce-angular';
     AlertDialogComponent,
     //BrowserAnimationsModule,
     MatDialogModule,
-    EditorModule
+    EditorModule,
+    NgxChartsModule
   ],
   providers: [DialogService],
   entryComponents: [

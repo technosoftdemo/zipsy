@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@core/services/auth.service';
-import { environment } from '@env/environment.prod';
+import { environment } from '@env/environment';
 
 @Component({
     selector: 'app-header',
@@ -24,6 +24,7 @@ export class HeaderComponent implements OnInit {
     }
 
     setImagePath(): void {
-        this.logoPath = environment.production ? 'img/logo.png' : 'assets/img/logo.png'
+        debugger;
+        this.logoPath = (environment.production === true ? 'img/logo.png' : 'assets/img/logo.png');
     }
 }

@@ -8,7 +8,7 @@ import { environment } from '@env/environment';
 import { catchError } from 'rxjs/internal/operators';
 import { Constants } from '@core/constants/cachekey.constant';
 
-@Injectable({'providedIn':'root'})
+@Injectable({ 'providedIn': 'root' })
 export class AppTranslateService implements TranslateLoader, OnInit {
     country: any;
     defaultLanguage: any;
@@ -42,7 +42,8 @@ export class AppTranslateService implements TranslateLoader, OnInit {
         else {
             // languageUrl = environment.baseHref + '/assets/translations/USA/json/'
             //     + homeCountryCode + '/' + language + '.json';
-            languageUrl = environment.baseHref + environment.production ?'translations/USA/en-US.json': '/assets/translations/USA/en-US.json';
+            debugger;
+            languageUrl = environment.baseHref + (environment.production === true ? 'translations/USA/en-US.json' : '/assets/translations/USA/en-US.json');
         }
         return this.http
             .get(languageUrl)

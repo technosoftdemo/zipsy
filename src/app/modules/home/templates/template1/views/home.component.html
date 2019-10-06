@@ -1,2 +1,132 @@
-<h4>{{'Home.Home page content' | translate}}</h4>
-<h6>{{userName}}</h6>
+<div style="padding-top:10px;">
+  <div fxLayout="column">
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+      <mat-card class="card-picture" fxFlex="33" style="height:300px;">
+        <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+          <!-- <span fxFlex="80%">{{picture.title}}</span> -->
+          <!-- *ngFor="let picture of pictures" -->
+          <span fxFlex="80%">New Postions open</span>
+
+          <!-- <mat-icon fxFlex="10%">mode_edit</mat-icon>
+        <mat-icon fxFlex="10%">delete</mat-icon> -->
+        </mat-card-title>
+        <mat-card-subtitle>Displays Past 7 days open Positions</mat-card-subtitle>
+        <mat-card-content>
+          <p><label fxFlex="60">Senior Software Engineer :</label><label fxFlex="20"><b>15</b></label></p>
+          <p><label fxFlex="60">Software Engineer :</label><label fxFlex="20"><b>5</b></label></p>
+          <p><label fxFlex="60">Product Owner :</label><label fxFlex="20"><b>1</b></label></p>
+          <p><label fxFlex="60">Business Analyst :</label><label fxFlex="20"><b>2</b></label></p>
+          <p><label fxFlex="60">DevOps Engineer:</label><label fxFlex="20"><b>6</b></label></p>
+        </mat-card-content>
+        <!-- <img mat-card-image [src]="picture.img"> -->
+      </mat-card>
+
+      <mat-card class="card-picture" fxFlex="33" style="height:300px;">
+        <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+          <!-- <span fxFlex="80%">{{picture.title}}</span> -->
+          <!-- *ngFor="let picture of pictures" -->
+          <span fxFlex="80%">Closed Positions</span>
+
+          <!-- <mat-icon fxFlex="10%">mode_edit</mat-icon>
+        <mat-icon fxFlex="10%">delete</mat-icon> -->
+        </mat-card-title>
+        <mat-card-subtitle>Displays Past 7 days closed Positions</mat-card-subtitle>
+        <mat-card-content>
+          <ngx-charts-bar-vertical [view]="view" [scheme]="colorScheme" [results]="single" [gradient]="gradient"
+            [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel"
+            [showYAxisLabel]="showYAxisLabel" [barPadding]="barPadding" [roundEdges]="roundEdges"
+            [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" (select)="onSelect($event)">
+          </ngx-charts-bar-vertical>
+        </mat-card-content>
+        <!-- <img mat-card-image [src]="picture.img"> -->
+      </mat-card>
+
+      <mat-card class="card-picture" fxFlex="33" style="height:300px;">
+        <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+          <!-- <span fxFlex="80%">{{picture.title}}</span> -->
+          <!-- *ngFor="let picture of pictures" -->
+          <span fxFlex="80%">Bench Resources</span>
+
+          <!-- <mat-icon fxFlex="10%">mode_edit</mat-icon>
+        <mat-icon fxFlex="10%">delete</mat-icon> -->
+        </mat-card-title>
+        <mat-card-subtitle>Displays Past 7 days closed Positions</mat-card-subtitle>
+        <mat-card-content>
+          <ngx-charts-bar-vertical [view]="view" [scheme]="colorScheme" [results]="single" [gradient]="gradient"
+            [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel"
+            [showYAxisLabel]="showYAxisLabel" [barPadding]="barPadding" [roundEdges]="roundEdges"
+            [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" (select)="onSelect($event)">
+          </ngx-charts-bar-vertical>
+        </mat-card-content>
+        <!-- <img mat-card-image [src]="picture.img"> -->
+      </mat-card>
+    </div>
+    <div fxLayout="row" fxFlex="100" fxLayout.xs="column" fxLayoutWrap style="margin-top:10px;">
+      <mat-card fxFlex="100">
+        <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+          <!-- <span fxFlex="80%">{{picture.title}}</span> -->
+          <!-- *ngFor="let picture of pictures" -->
+          <span fxFlex="80%">Active Positions</span>
+
+          <!-- <mat-icon fxFlex="10%">mode_edit</mat-icon>
+              <mat-icon fxFlex="10%">delete</mat-icon> -->
+        </mat-card-title>
+        <mat-card-subtitle>Displays Past 7 days Active Positions</mat-card-subtitle>
+        <mat-card-content>
+
+          <table mat-table [dataSource]="skillset" fxFlex="100" style="box-shadow:none;" class="mat-elevation-z8">
+
+            <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+            <!-- Name Column -->
+            <ng-container matColumnDef="Project">
+              <th mat-header-cell *matHeaderCellDef> Project </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="Location">
+              <th mat-header-cell *matHeaderCellDef> Location </th>
+              <td mat-cell *matCellDef="let element"> {{element.location}} </td>
+            </ng-container>
+
+
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="Positions">
+              <th mat-header-cell *matHeaderCellDef> Position </th>
+              <td mat-cell *matCellDef="let element"> {{element.positions}} </td>
+            </ng-container>
+            <ng-container matColumnDef="Skills">
+              <th mat-header-cell *matHeaderCellDef> Skills </th>
+              <td mat-cell *matCellDef="let element"> {{element.skills}} </td>
+            </ng-container>
+            <ng-container matColumnDef="Status">
+                <th mat-header-cell *matHeaderCellDef> Status </th>
+                <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+              </ng-container>
+              <ng-container matColumnDef="Interviewed">
+                  <th mat-header-cell *matHeaderCellDef> Status </th>
+                  <td mat-cell *matCellDef="let element"> {{element.interviewed ? 'Yes':'No'}} </td>
+                </ng-container>
+                <ng-container matColumnDef="Finalized">
+                    <th mat-header-cell *matHeaderCellDef> Status </th>
+                    <td mat-cell *matCellDef="let element"> {{element.finalized ? 'Yes':'No'}}  </td>
+                  </ng-container>
+            <!-- <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef> Actions </th>
+              <td mat-cell *matCellDef="let element">
+                <mat-icon aria-hidden="false" style="cursor: pointer;"
+                  class="material-icons color_blue" aria-label="edit icon">edit</mat-icon>
+                <mat-icon aria-hidden="false" style="cursor: pointer;"
+                  class="material-icons color_red" aria-label="delete icon error">delete</mat-icon>          
+              </td>
+            </ng-container> -->
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
