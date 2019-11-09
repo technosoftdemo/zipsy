@@ -1,5 +1,6 @@
 interface LoginModel {
-    username: string;
+    loginId: string;
     password: string;
     token: string;
+    errorMessage:string;
 }
