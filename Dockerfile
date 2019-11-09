@@ -9,6 +9,7 @@ FROM node:alpine AS builder
 
 #apk add --update --no-cache gifsicle ttf-freefont optipng libjpeg-turbo-utils udev chromium
 #export CHROME_BIN=/usr/bin/chromium-browser
+ARG CACHEBUST=1
 WORKDIR /app
 
 # add `/app/node_modules/.bin` to $PATH

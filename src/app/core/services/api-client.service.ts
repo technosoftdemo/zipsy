@@ -13,7 +13,7 @@ export function titanApiClientCreator(http: HttpClient) {
     providedIn: 'root',
 })
 export class ApiClient {
-    private apiBaseUrl = environment.apiUrl;
+    private apiBaseUrl = environment.apiGatewayUrl;
     constructor(private httpClient: HttpClient) {
     }
 
