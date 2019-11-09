@@ -21,8 +21,10 @@
             <mat-card-actions align="end">
                 <!--   <button mat-raised-button color="primary"
                     (click)="login();">{{'Login.Click to Login' | translate}}</button> -->
-                 <button mat-raised-button color="primary" type="submit"
-                    [disabled]="loginForm.invalid">{{'Login.Click to Login' | translate}}</button>
+                <!--  <button mat-raised-button color="primary" type="submit"
+                    [disabled]="loginForm.invalid">{{'Login.Click to Login' | translate}}</button> -->
+                     <button mat-raised-button color="primary" type="submit"
+                    [disabled]="loginForm.invalid">{{Login}}</button>
             </mat-card-actions>
         </form>
     </mat-card>
