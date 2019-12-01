@@ -27,7 +27,7 @@ COPY . .
 #Stage 2
 FROM nginx:alpine
 
-RUN ls
+RUN ls /app
 
 ## Copy our default nginx config
 COPY nginx/default.conf /etc/nginx/conf.d/
