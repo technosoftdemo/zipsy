@@ -15,14 +15,14 @@ WORKDIR /app
 # add `/app/node_modules/.bin` to $PATH
 ENV PATH /app/node_modules/.bin:$PATH
 
-COPY package.json /app/package.json
-RUN npm install
-RUN npm install -g @angular/cli@7.3.9
+#COPY package.json /app/package.json
+#RUN npm install
+#RUN npm install -g @angular/cli@7.3.9
 
-COPY . .
-RUN npm install
-RUN npm run postinstall && \
-    npm run build
+#COPY . .
+#RUN npm install
+#RUN npm run postinstall && \
+#    npm run build
 
 #Stage 2
 FROM nginx:alpine
