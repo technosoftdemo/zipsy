@@ -5,5 +5,5 @@ export const environment = {
   encryptionKey:"",
   baseHref: document.getElementsByTagName('base')[0].href,
   cdnURL:'',
-  apiGatewayUrl:'http://15.206.79.121:8080/'
+  apiGatewayUrl:'http://13.234.5.9:8080/'
 };
