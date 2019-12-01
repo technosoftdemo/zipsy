@@ -20,14 +20,13 @@ COPY package.json /app/package.json
 #RUN npm install -g @angular/cli@7.3.9
 
 COPY . .
-RUN npm install
-RUN npm run postinstall && \
-    npm run build
+RUN ls
+#RUN npm install
+#RUN npm run postinstall && \
+#    npm run build
 
 #Stage 2
 FROM nginx:alpine
-
-RUN ls /app
 
 ## Copy our default nginx config
 COPY nginx/default.conf /etc/nginx/conf.d/
