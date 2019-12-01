@@ -27,7 +27,7 @@ WORKDIR /app
 #Stage 2
 FROM nginx:alpine
 
-RUN ls dist
+RUN ls
 
 ## Copy our default nginx config
 COPY nginx/default.conf /etc/nginx/conf.d/
